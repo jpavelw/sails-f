@@ -1,3 +1,4 @@
+require('dotenv').config();
 /**
  * Connections
  * (sails.config.connections)
@@ -56,13 +57,14 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
-  localMongoDB: {
+  mongoLabDB: {
     adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
+    url: process.env.MONGODB_URI
+  //   host: 'localhost',
+  //   port: 27017,
   //   user: 'username', //optional
   //   password: 'password', //optional
-    database: 'sails' //optional
+  //   database: 'sails' //optional
     /*
       there is also a property called url: which will take a url for the db if it's in the cloud
       for this we'd have to do set an evironment variable which we define before calling sails lift like
