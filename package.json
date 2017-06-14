@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "connect-redis": "^3.3.0",
     "dotenv": "^4.0.0",
     "ejs": "2.3.4",
     "grunt": "1.0.1",
@@ -21,9 +22,11 @@
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
     "rc": "1.0.1",
+    "redis": "^2.7.1",
     "sails": "~0.12.13",
     "sails-disk": "~0.10.9",
-    "sails-mongo": "^0.12.2"
+    "sails-mongo": "^0.12.2",
+    "socket.io-redis": "^0.1.4"
   },
   "scripts": {
     "debug": "node debug app.js",
