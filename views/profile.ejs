@@ -1,0 +1,20 @@
+<div ng-app="Platzi" ng-controller="BaseCtrl">
+    <!-- <h1>{{user.name}}</h1> -->
+    <h1><%= user.screenName %></h1>
+    <ul>
+        <!-- <li ng-repeat="emoji in emojis">
+            <span>{{emoji.text}}</span>
+        </li> -->
+        <% _.each(emojis, function(emoji){ %>
+            <li><%= emoji.text %></li>
+        <% }); %>
+    </ul>
+</div>
+
+<% if (!req.session.me) { %>
+
+    <a class="btn btn-social btn-twitter" style="text-align: right;width: 175px;" href="<%= twitterLoginUrl %>">
+        <span class="fa fa-twitter"></span> Sign in with Twitter
+    </a>
+
+<% } %>

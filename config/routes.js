@@ -32,9 +32,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
+  /*'/': {
     view: 'homepage'
-  },
+  },*/
 
   /***************************************************************************
   *                                                                          *
@@ -46,8 +46,32 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/world': {
-    view: 'world'
-  }
+  /*'/profile': {
+    view: 'profile'
+  },*/
+  /*'GET /': {
+    controller: 'UserController',
+    action: 'findOne'
+  },*/
 
+  // The order matters. If I put /twitter it will create a route for it and the next  routes will be created after it
+  // If I put /twitter after /:screen name, it will be ignored and taken as a screenname
+  'GET /twitter': {
+    controller: 'TwitterController',
+    action: 'handleLogin'
+  },
+  'GET /me': {
+    controller: 'UserController',
+    action: 'whoAmI'
+  },
+  'GET /:screenName': {
+    controller: 'UserController',
+    action: 'findOne'
+  }/*,
+  '/emoji/:id/takeover': {
+    controller: 'EmojiController',
+    action: 'associateWithUser'
+  }*/
+  // Or '/emoji/takeover': 'EmojiController.associateWithUser'
+  
 };

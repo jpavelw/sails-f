@@ -1,5 +1,5 @@
 /**
- * Emoji.js
+ * User.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,17 +8,20 @@
 module.exports = {
 
   attributes: {
-    // e.g. ":("
-    text: {
+    name: {
       type: 'string'
     },
-    // Every Emoji record belongs to a particular user.
-    owner: {
-      model: 'User'
-    }/*,
-    leastFavoriteOf: {
+    screenName: {
+      type: 'string',
+      unique: true
+    },
+    emojis: {
       collection: 'Emoji',
-      via: 'leastFavoriteEmojis'
+      via: 'owner'
+    }/*,
+    leastFavoriteEmojis: {
+      collection: 'Emoji',
+      via: 'leastFavoriteOf'
     }*/
   }
 };
