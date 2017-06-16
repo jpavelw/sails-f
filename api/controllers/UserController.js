@@ -6,8 +6,8 @@
  */
 
 require('dotenv').config();
-const https = require('https');
-const randomstring = require("randomstring");
+//const https = require('https');
+//const randomstring = require("randomstring");
 
 module.exports = {
 	// GET /user/:id
