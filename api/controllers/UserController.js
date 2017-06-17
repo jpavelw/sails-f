@@ -89,7 +89,7 @@ module.exports = {
         // node-machine.org
         //TODO: build twitterLoginUrl
 
-        var Twitter = require('machinepack-twitter');
+        /*var Twitter = require('machinepack-twitter');
 
         // Get the URL on twitter.com that a user should visit to allow/deny the specified Twitter Developer app (i.e. your app).
         Twitter.getLoginUrl({
@@ -123,6 +123,27 @@ module.exports = {
                     });
                 });
             },
+        });*/
+
+
+        User.findOne({
+            screenName: req.param('screenName')
+        }).exec(function(err, user){
+            if(err) return res.negotiate(err);
+
+            if(!user) return res.notFound();
+
+            Emoji.find({
+                owner: user.id
+            }).exec(function(err, emojis){
+                if(err) return res.negotiate(err);
+
+                return res.view('profile', {
+                    user: user,
+                    emojis: emojis,
+                    twitterLoginUrl: 'https://twitter.com'
+                });
+            });
         });
     }
 };
